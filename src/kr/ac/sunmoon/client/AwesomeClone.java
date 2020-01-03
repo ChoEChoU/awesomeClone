@@ -1,12 +1,15 @@
 package kr.ac.sunmoon.client;
 
-import com.google.gwt.core.client.EntryPoint;  
-import com.gwtext.client.core.Margins;  
-import com.gwtext.client.core.RegionPosition;  
-import com.gwtext.client.widgets.Panel;  
-import com.gwtext.client.widgets.Viewport;  
-import com.gwtext.client.widgets.layout.BorderLayout;  
-import com.gwtext.client.widgets.layout.BorderLayoutData;  
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.Style.Unit;
+import com.gwtext.client.core.Margins;
+import com.gwtext.client.core.RegionPosition;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.TabPanel;
+import com.gwtext.client.widgets.Viewport;
+import com.gwtext.client.widgets.form.HtmlEditor;
+import com.gwtext.client.widgets.layout.BorderLayout;
+import com.gwtext.client.widgets.layout.BorderLayoutData;
 import com.gwtext.client.widgets.layout.FitLayout;  
 
 /**
@@ -24,18 +27,16 @@ public class AwesomeClone implements EntryPoint {
   
         //add north panel  
         Panel northPanel = new Panel();  
-        northPanel.setHtml("<p>north panel</p>");  
-        northPanel.setHeight(32);  
-        northPanel.setBodyStyle("background-color:#FFFF88");  
+        northPanel.setHtml("<center><p><font size='5'>Awesome</font></p></center>");
+        northPanel.setHeight(32);
         borderPanel.add(northPanel, new BorderLayoutData(RegionPosition.NORTH));  
   
         //add south panel  
         Panel southPanel = new Panel();  
-        southPanel.setHtml("<p>south panel</p>");  
-        southPanel.setHeight(100);  
-        southPanel.setBodyStyle("background-color:#CDEB8B");  
+        southPanel.setHtml("<p>Keywords</p>");  
+        southPanel.setHeight(100); 
         southPanel.setCollapsible(true);  
-        southPanel.setTitle("South");  
+        southPanel.setTitle("Keywords");  
   
         BorderLayoutData southData = new BorderLayoutData(RegionPosition.SOUTH);  
         southData.setMinSize(100);  
@@ -47,7 +48,7 @@ public class AwesomeClone implements EntryPoint {
         //add east panel  
         Panel eastPanel = new Panel();  
         eastPanel.setHtml("<p>east panel</p>");  
-        eastPanel.setTitle("East Side");  
+        eastPanel.setTitle("Figures of keywords");  
         eastPanel.setCollapsible(true);  
         eastPanel.setWidth(225);  
   
@@ -57,26 +58,11 @@ public class AwesomeClone implements EntryPoint {
         eastData.setMaxSize(400);  
         eastData.setMargins(new Margins(0, 0, 5, 0));  
   
-        borderPanel.add(eastPanel, eastData);  
-  
-        Panel westPanel = new Panel();  
-        westPanel.setHtml("<p>west panel</p>");  
-        westPanel.setTitle("West");  
-        westPanel.setBodyStyle("background-color:#EEEEEE");  
-        westPanel.setCollapsible(true);  
-        westPanel.setWidth(200);  
-  
-        BorderLayoutData westData = new BorderLayoutData(RegionPosition.WEST);  
-        westData.setSplit(true);  
-        westData.setMinSize(175);  
-        westData.setMaxSize(400);  
-        westData.setMargins(new Margins(0, 5, 0, 0));  
-  
-        borderPanel.add(westPanel, westData);  
-  
-        Panel centerPanel = new Panel();  
-        centerPanel.setHtml("<p>center panel</p>");  
-        centerPanel.setBodyStyle("background-color:#C3D9FF");  
+        borderPanel.add(eastPanel, eastData);
+
+        HtmlEditor htmlEditor = new HtmlEditor();
+        TabPanel centerPanel = new TabPanel();	
+		centerPanel.add(htmlEditor);
   
         borderPanel.add(centerPanel, new BorderLayoutData(RegionPosition.CENTER));  
   
